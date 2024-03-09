@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        File originLanguage = new File("C:\\Users\\Jwon0\\IdeaProjects\\Wurst7\\src\\main\\resources\\assets\\wurst\\lang\\en_us.json");
-        File targetLanguage = new File("C:\\Users\\Jwon0\\IdeaProjects\\Wurst7\\src\\main\\resources\\assets\\wurst\\lang\\ko_kr.json");
+        File originLanguage = new File("C:\\Users\\Jwon0\\IdeaProjects\\TransrationNullingChecker\\src\\en_us.json");
+        File targetLanguage = new File("C:\\Users\\Jwon0\\IdeaProjects\\TransrationNullingChecker\\src\\ko_kr.json");
 
         ArrayList<String> originDataGettering = trimmingData(originLanguage);
         ArrayList<String> targetDataGettering = trimmingData(targetLanguage);
