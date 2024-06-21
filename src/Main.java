@@ -16,6 +16,7 @@ public class Main {
         ArrayList<String[]> originDataGettering = trimmingData(originLanguage);
         ArrayList<String[]> targetDataGettering = trimmingData(targetLanguage);
 
+        dataChecking(originDataGettering,targetDataGettering);
         ArrayList<String> totalData = missingDataIndex(originDataGettering,targetDataGettering);
         addMessage(totalData);
     }
@@ -38,7 +39,7 @@ public class Main {
             resultList.add(originData[0] + ": " + data +",\n");
         }
 
-        System.out.println(resultList);
+//        System.out.println(resultList);
 //        for (int i = 0; i < resultList.size(); i++)
 //            if (!resultList.get(i))
 //                System.err.println(original.get(i)[0]);
@@ -53,6 +54,24 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void dataChecking(ArrayList<String[]> original, ArrayList<String[]> target) {
+        ArrayList<Boolean> resultList = new ArrayList<>();
+        for (String[] originData : original) {
+            boolean existChecker = false;
+            for (String[] targetData : target) {
+                if (originData[0].equals(targetData[0])) {
+                    existChecker = true;
+                    break;
+                }
+            }
+            resultList.add(existChecker);
+        }
+        System.err.println("Missing Key Value ↓↓↓↓↓↓↓↓↓↓");
+        for (int i = 0; i < resultList.size(); i++)
+            if (!resultList.get(i))
+                System.err.println(original.get(i)[0]);
     }
 
     private static ArrayList<String[]> trimmingData(File targetFile) throws Exception {
